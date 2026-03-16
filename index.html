@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amora Moída Vit – Saúde Natural de Verdade</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --purple: #6B2D8B;
+      --purple-dark: #4A1A63;
+      --purple-light: #9B59B6;
+      --pink: #C0392B;
+      --gold: #F39C12;
+      --green: #27AE60;
+      --white: #fff;
+      --gray: #f5f3f7;
+      --text: #2c2c2c;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; color: var(--text); background: #fff; overflow-x: hidden; }
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 999;
+      background: rgba(75, 26, 99, 0.97);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 5%;
+    }
+    .nav-logo { color: #fff; font-size: 1.2rem; font-weight: 800; letter-spacing: 1px; }
+    .nav-logo span { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold); color: #fff; border: none;
+      padding: 8px 20px; border-radius: 30px;
+      font-weight: 700; font-size: .85rem; cursor: pointer;
+      text-decoration: none; transition: transform .2s;
+    }
+    .nav-cta:hover { transform: scale(1.05); }
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #4A1A63 0%, #7D3C98 50%, #C0392B 100%);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 100px 5% 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(255,255,255,.07) 0%, transparent 60%);
+    }
+    .hero-badge {
+      display: inline-block; background: var(--gold);
+      color: #fff; font-weight: 700; font-size: .78rem;
+      padding: 5px 16px; border-radius: 20px; letter-spacing: 1.5px;
+      text-transform: uppercase; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      color: #fff; font-weight: 900; line-height: 1.15;
+      margin-bottom: 18px;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero p {
+      color: rgba(255,255,255,.88); font-size: clamp(1rem, 2.5vw, 1.25rem);
+      max-width: 620px; margin: 0 auto 36px; line-height: 1.7;
+    }
+    .hero-emoji { font-size: clamp(4rem, 10vw, 7rem); margin-bottom: 16px; display: block; }
+    .btn-hero {
+      display: inline-block;
+      background: linear-gradient(90deg, #F39C12, #E67E22);
+      color: #fff; font-weight: 800; font-size: clamp(1rem, 2.5vw, 1.2rem);
+      padding: 18px 48px; border-radius: 50px;
+      text-decoration: none; box-shadow: 0 8px 30px rgba(243,156,18,.5);
+      transition: transform .2s, box-shadow .2s; letter-spacing: .5px;
+    }
+    .btn-hero:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(243,156,18,.6); }
+    .hero-sub { color: rgba(255,255,255,.7); font-size: .85rem; margin-top: 14px; }
+    .hero-stats {
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+      margin-top: 50px;
+    }
+    .stat-box {
+      background: rgba(255,255,255,.12); backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 16px; padding: 18px 28px; color: #fff; text-align: center;
+    }
+    .stat-box strong { display: block; font-size: 1.8rem; font-weight: 900; color: var(--gold); }
+    .stat-box span { font-size: .8rem; opacity: .8; }
+    section { padding: 80px 5%; }
+    .section-tag {
+      display: inline-block; background: rgba(107,45,139,.12);
+      color: var(--purple); font-weight: 700; font-size: .75rem;
+      padding: 4px 14px; border-radius: 20px; letter-spacing: 1.5px;
+      text-transform: uppercase; margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 900;
+      color: var(--purple-dark); line-height: 1.2; margin-bottom: 14px;
+    }
+    .section-title span { color: var(--purple-light); }
+    .section-sub { color: #666; font-size: 1rem; max-width: 580px; line-height: 1.7; }
+    .center { text-align: center; }
+    .center .section-sub { margin: 0 auto; }
+    .benefits { background: var(--gray); }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px; margin-top: 50px;
+    }
+    .benefit-card {
+      background: #fff; border-radius: 20px;
+      padding: 32px 26px; text-align: center;
+      box-shadow: 0 4px 20px rgba(107,45,139,.08);
+      transition: transform .25s, box-shadow .25s;
+      border-top: 4px solid var(--purple-light);
+    }
+    .benefit-card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(107,45,139,.18); }
+    .benefit-icon { font-size: 2.8rem; margin-bottom: 14px; display: block; }
+    .benefit-card h3 { color: var(--purple-dark); font-size: 1.05rem; font-weight: 800; margin-bottom: 10px; }
+    .benefit-card p { color: #666; font-size: .9rem; line-height: 1.6; }
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px; margin-top: 50px;
+    }
+    .who-card {
+      background: linear-gradient(135deg, #f9f4ff, #fff3f9);
+      border: 2px solid rgba(107,45,139,.12);
+      border-radius: 18px; padding: 26px 22px; text-align: center;
+      transition: border-color .2s;
+    }
+    .who-card:hover { border-color: var(--purple-light); }
+    .who-icon { font-size: 3rem; margin-bottom: 12px; display: block; }
+    .who-card h3 { color: var(--purple-dark); font-weight: 800; margin-bottom: 8px; font-size: 1rem; }
+    .who-card p { color: #777; font-size: .875rem; line-height: 1.6; }
+    .ingredients {
+      background: linear-gradient(135deg, #4A1A63, #7D3C98);
+      color: #fff;
+    }
+    .ingredients .section-title { color: #fff; }
+    .ingredients .section-tag { background: rgba(255,255,255,.15); color: var(--gold); }
+    .ing-list {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      margin-top: 40px; justify-content: center;
+    }
+    .ing-pill {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 50px; padding: 12px 24px;
+      font-size: .9rem; font-weight: 600;
+      display: flex; align-items: center; gap: 8px;
+      color: #fff; transition: background .2s;
+    }
+    .ing-pill:hover { background: rgba(255,255,255,.22); }
+    .videos { background: var(--gray); }
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px; margin-top: 50px;
+    }
+    .video-card {
+      background: #fff; border-radius: 20px; overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,.08);
+      display: flex; flex-direction: column;
+      transition: transform .25s;
+    }
+    .video-card:hover { transform: translateY(-4px); }
+    .video-preview {
+      height: 190px; display: flex; flex-direction: column;
+      justify-content: center; align-items: center; gap: 8px;
+      color: #fff; position: relative; cursor: pointer;
+      text-align: center; padding: 20px;
+    }
+    .preview-purple { background: linear-gradient(135deg, #7D3C98, #C0392B); }
+    .preview-green { background: linear-gradient(135deg, #1a6b4a, #27AE60); }
+    .preview-orange { background: linear-gradient(135deg, #F39C12, #E67E22); }
+    .preview-icon { font-size: 3rem; }
+    .preview-duration {
+      font-weight: 700; letter-spacing: 1px; font-size: .9rem;
+      background: rgba(255,255,255,.25); padding: 4px 14px; border-radius: 999px;
+    }
+    .preview-label { font-weight: 800; font-size: 1rem; }
+    .video-info {
+      padding: 20px 22px 26px; display: flex; flex-direction: column; gap: 10px;
+      flex: 1;
+    }
+    .video-info h4 { color: var(--purple-dark); font-weight: 800; font-size: 1rem; }
+    .video-info p { color: #777; font-size: .9rem; line-height: 1.6; flex: 1; }
+    .btn-video {
+      align-self: flex-start;
+      background: var(--purple); color: #fff; border: none;
+      padding: 10px 22px; border-radius: 30px; font-weight: 700;
+      cursor: pointer; transition: transform .2s, box-shadow .2s;
+      text-transform: uppercase; font-size: .85rem;
+    }
+    .btn-video:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(107,45,139,.3); }
+    .video-note {
+      margin-top: 24px; font-size: .85rem; color: #777; text-align: center;
+    }
+    .testimonials { background: #fff; }
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px; margin-top: 50px;
+    }
+    .test-card {
+      background: var(--gray);
+      border-radius: 20px; padding: 28px 26px;
+      position: relative; overflow: hidden;
+      border-left: 5px solid var(--purple-light);
+    }
+    .test-card::before {
+      content: '❝'; font-size: 5rem; color: var(--purple-light);
+      opacity: .12; position: absolute; top: -10px; right: 14px;
+      line-height: 1; font-family: serif;
+    }
+    .stars { color: var(--gold); font-size: 1.1rem; margin-bottom: 12px; }
+    .test-card p { color: #555; font-size: .92rem; line-height: 1.7; margin-bottom: 18px; font-style: italic; }
+    .test-author { display: flex; align-items: center; gap: 12px; }
+    .avatar {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple), var(--purple-light));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; flex-shrink: 0;
+    }
+    .test-name { font-weight: 800; font-size: .9rem; color: var(--purple-dark); }
+    .test-meta { font-size: .78rem; color: #999; }
+    .guarantee {
+      background: linear-gradient(135deg, #1a4a1a, #27AE60);
+      color: #fff; text-align: center;
+    }
+    .guarantee .section-title { color: #fff; }
+    .guarantee .section-tag { background: rgba(255,255,255,.2); color: #fff; }
+    .guarantee-box {
+      display: inline-flex; align-items: center; gap: 20px;
+      background: rgba(255,255,255,.1);
+      border: 2px solid rgba(255,255,255,.3);
+      border-radius: 20px; padding: 28px 36px; margin-top: 36px;
+      flex-wrap: wrap; justify-content: center;
+    }
+    .guarantee-icon { font-size: 4rem; }
+    .guarantee-text { text-align: left; }
+    .guarantee-text h3 { font-size: 1.4rem; font-weight: 900; margin-bottom: 6px; }
+    .guarantee-text p { opacity: .85; font-size: .95rem; line-height: 1.6; max-width: 420px; }
+    .final-cta {
+      background: linear-gradient(135deg, #4A1A63 0%, #7D3C98 50%, #C0392B 100%);
+      text-align: center; padding: 100px 5%;
+    }
+    .final-cta h2 { color: #fff; font-size: clamp(1.8rem, 4.5vw, 3rem); font-weight: 900; margin-bottom: 16px; }
+    .final-cta p { color: rgba(255,255,255,.85); font-size: 1.1rem; max-width: 560px; margin: 0 auto 36px; line-height: 1.7; }
+    .price-box {
+      display: inline-block;
+      background: rgba(255,255,255,.1);
+      border: 2px solid rgba(255,255,255,.3);
+      border-radius: 20px; padding: 24px 40px; margin-bottom: 32px;
+    }
+    .price-old { color: rgba(255,255,255,.5); font-size: .95rem; text-decoration: line-through; }
+    .price-new { color: var(--gold); font-size: 2.8rem; font-weight: 900; line-height: 1; }
+    .price-new small { font-size: 1rem; font-weight: 600; }
+    .price-parcelas { color: rgba(255,255,255,.75); font-size: .9rem; margin-top: 6px; }
+    .btn-cta-main {
+      display: inline-block;
+      background: linear-gradient(90deg, #F39C12, #E67E22);
+      color: #fff; font-weight: 900; font-size: clamp(1rem, 2.5vw, 1.3rem);
+      padding: 20px 60px; border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 10px 40px rgba(243,156,18,.55);
+      transition: transform .2s, box-shadow .2s;
+      letter-spacing: .5px; text-transform: uppercase;
+    }
+    .btn-cta-main:hover { transform: translateY(-4px); box-shadow: 0 16px 50px rgba(243,156,18,.7); }
+    .cta-trust {
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .trust-item { color: rgba(255,255,255,.8); font-size: .85rem; display: flex; align-items: center; gap: 6px; }
+    .faq { background: var(--gray); }
+    .faq-list { margin-top: 44px; max-width: 780px; margin-left: auto; margin-right: auto; }
+    .faq-item {
+      background: #fff; border-radius: 14px; margin-bottom: 12px;
+      overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,.05);
+    }
+    .faq-q {
+      width: 100%; background: none; border: none;
+      padding: 20px 24px; text-align: left; cursor: pointer;
+      font-weight: 700; font-size: .95rem; color: var(--purple-dark);
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    }
+    .faq-q .arr { transition: transform .3s; font-size: 1.1rem; flex-shrink: 0; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s; }
+    .faq-a p { padding: 0 24px 20px; color: #666; font-size: .92rem; line-height: 1.7; }
+    .faq-item.open .arr { transform: rotate(180deg); }
+    .faq-item.open .faq-a { max-height: 300px; }
+    footer {
+      background: var(--purple-dark); color: rgba(255,255,255,.65);
+      text-align: center; padding: 30px 5%; font-size: .82rem; line-height: 1.8;
+    }
+    footer a { color: rgba(255,255,255,.5); text-decoration: none; }
+    footer strong { color: var(--gold); }
+    .floating-btn {
+      position: fixed; bottom: 24px; right: 24px; z-index: 998;
+      background: linear-gradient(90deg, #F39C12, #E67E22);
+      color: #fff; font-weight: 800; font-size: .85rem;
+      padding: 14px 22px; border-radius: 50px;
+      box-shadow: 0 8px 28px rgba(243,156,18,.5);
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+      transition: transform .2s;
+    }
+    .floating-btn:hover { transform: scale(1.06); }
+    .video-modal {
+      position: fixed; inset: 0; background: rgba(16, 0, 27, .7);
+      display: none; align-items: center; justify-content: center;
+      padding: 20px; z-index: 1000;
+    }
+    .video-modal.active { display: flex; }
+    .video-modal-content {
+      background: #fff; border-radius: 24px;
+      max-width: 650px; width: 100%; padding: 30px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25); position: relative;
+    }
+    .video-close {
+      position: absolute; top: 12px; right: 12px;
+      border: none; background: rgba(0,0,0,.08); color: var(--purple-dark);
+      width: 34px; height: 34px; border-radius: 50%;
+      font-size: 1.2rem; cursor: pointer; transition: background .2s;
+    }
+    .video-close:hover { background: rgba(0,0,0,.18); }
+    #videoTitle { font-size: 1.15rem; font-weight: 800; color: var(--purple-dark); text-align: center; margin-bottom: 16px; }
+    .video-screen {
+      border-radius: 20px; min-height: 260px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 14px; color: #fff; text-align: center; padding: 30px;
+      box-shadow: inset 0 0 40px rgba(0,0,0,.15);
+    }
+    .video-frame-emoji { font-size: 3.2rem; }
+    .video-frame-text { font-size: 1.1rem; line-height: 1.6; max-width: 480px; }
+    .video-progress {
+      width: 100%; height: 8px; background: #eee;
+      border-radius: 999px; margin: 18px 0 10px;
+    }
+    #videoProgressBar {
+      height: 100%; width: 0%; background: var(--gold);
+      border-radius: inherit; transition: width .4s ease;
+    }
+    .video-controls { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .video-controls button {
+      border: none; border-radius: 999px; padding: 10px 22px;
+      font-weight: 700; cursor: pointer; color: #fff;
+      background: var(--purple); transition: transform .2s;
+    }
+    .video-controls button:nth-child(2) { background: var(--pink); }
+    .video-controls button:nth-child(3) { background: var(--green); }
+    .video-controls button:hover { transform: translateY(-2px); }
+    .video-caption { font-size: .88rem; color: #666; text-align: center; margin-top: 12px; }
+    @media (max-width: 600px) {
+      .hero-stats { gap: 12px; }
+      .stat-box { padding: 14px 18px; }
+      .btn-hero { padding: 15px 32px; }
+      .guarantee-text { text-align: center; }
+      nav { padding: 10px 4%; }
+      .video-modal-content { padding: 24px; }
+    }
+    @keyframes pulse {
+      0%,100% { box-shadow: 0 8px 28px rgba(243,156,18,.5); }
+      50% { box-shadow: 0 8px 40px rgba(243,156,18,.85); }
+    }
+    .btn-hero, .btn-cta-main, .floating-btn { animation: pulse 2.5s infinite; }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">🫐 Amora<span>Moída Vit</span></div>
+  <a href="https://seu-link-de-afiliado.com" target="_blank" class="nav-cta">Comprar Agora</a>
+</nav>
+
+<section class="hero">
+  <div>
+    <span class="hero-emoji">🫐</span>
+    <div class="hero-badge">✨ Fórmula Natural & Exclusiva</div>
+    <h1>O Poder da <span>Amora Moída</span><br>que Transforma sua Saúde</h1>
+    <p>Equilíbrio hormonal, energia e bem-estar em um único suplemento. A natureza com ciência a favor do seu corpo.</p>
+    <a href="https://seu-link-de-afiliado.com" target="_blank" class="btn-hero">🛒 Garantir Meu Frasco com Desconto</a>
+    <div class="hero-sub">🔒 Compra 100% Segura • Entrega Garantida • Satisfação ou Dinheiro de Volta</div>
+    <div class="hero-stats">
+      <div class="stat-box"><strong>+50K</strong><span>Clientes Satisfeitas</span></div>
+      <div class="stat-box"><strong>98%</strong><span>Aprovação</span></div>
+      <div class="stat-box"><strong>30 dias</strong><span>Garantia Total</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="benefits">
+  <div class="center">
+    <div class="section-tag">🌿 Benefícios Comprovados</div>
+    <h2 class="section-title">Por que Amora Moída Vit <span>funciona?</span></h2>
+    <p class="section-sub">Cada cápsula é formulada com extrato concentrado de amora-preta e vitaminas essenciais para o equilíbrio do seu organismo.</p>
+  </div>
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <span class="benefit-icon">⚖️</span>
+      <h3>Equilíbrio Hormonal</h3>
+      <p>Atua diretamente no equilíbrio dos hormônios femininos, aliviando sintomas do climatério e menopausa com eficácia natural.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">🌡️</span>
+      <h3>Alívio dos Calores</h3>
+      <p>Reduz significativamente as ondas de calor (fogachos), proporcionando mais conforto e qualidade de vida no dia a dia.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">😴</span>
+      <h3>Sono Reparador</h3>
+      <p>Melhora a qualidade do sono, combatendo insônia e noites agitadas comuns durante as mudanças hormonais.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">💪</span>
+      <h3>Mais Energia & Disposição</h3>
+      <p>Combate o cansaço e a fadiga crônica, devolvendo a sua disposição para aproveitar cada momento da vida.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">🧠</span>
+      <h3>Foco & Memória</h3>
+      <p>Os antioxidantes da amora protegem os neurônios, melhorando o foco, a concentração e a memória.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">❤️</span>
+      <h3>Saúde Cardiovascular</h3>
+      <p>Favorece a circulação sanguínea e ajuda a manter o colesterol em equilíbrio, cuidando do seu coração.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">🩸</span>
+      <h3>Controle do Açúcar</h3>
+      <p>Auxilia no controle da glicemia, sendo um aliado para quem busca manter os níveis de açúcar no sangue estáveis.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">✨</span>
+      <h3>Pele, Cabelo & Unhas</h3>
+      <p>Rica em vitaminas e antioxidantes que promovem a beleza de dentro para fora, com pele mais firme e luminosa.</p>
+    </div>
+  </div>
+</section>
+
+<section class="who">
+  <div class="center">
+    <div class="section-tag">👥 Para Quem É Indicado</div>
+    <h2 class="section-title">Amora Moída Vit foi feito <span>para você!</span></h2>
+    <p class="section-sub">Este suplemento foi desenvolvido para mulheres que buscam equilíbrio e bem-estar em todas as fases da vida.</p>
+  </div>
+  <div class="who-grid">
+    <div class="who-card">
+      <span class="who-icon">🌸</span>
+      <h3>Mulheres na Menopausa</h3>
+      <p>Perfeito para quem sofre com ondas de calor, irritabilidade e desequilíbrio hormonal durante a menopausa.</p>
+    </div>
+    <div class="who-card">
+      <span class="who-icon">🌙</span>
+      <h3>Quem Tem Insônia</h3>
+      <p>Ideal para mulheres com dificuldade para dormir, noites agitadas ou sono de baixa qualidade.</p>
+    </div>
+    <div class="who-card">
+      <span class="who-icon">🏃‍♀️</span>
+      <h3>Vida Agitada e Estressante</h3>
+      <p>Para quem vive no ritmo acelerado e precisa de mais energia, foco e resistência física e mental.</p>
+    </div>
+    <div class="who-card">
+      <span class="who-icon">🩺</span>
+      <h3>Controle da Glicemia</h3>
+      <p>Excelente para mulheres que desejam controlar naturalmente os níveis de açúcar no sangue.</p>
+    </div>
+    <div class="who-card">
+      <span class="who-icon">💃</span>
+      <h3>A partir dos 40 anos</h3>
+      <p>Indicado para mulheres a partir dos 40 anos que desejam prevenir e tratar os sinais do envelhecimento hormonal.</p>
+    </div>
+    <div class="who-card">
+      <span class="who-icon">🌿</span>
+      <h3>Quem Prefere Natural</h3>
+      <p>Para quem busca alternativas naturais aos tratamentos hormonais sintéticos, com eficácia e segurança.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ingredients center">
+  <div class="section-tag">🔬 Composição</div>
+  <h2 class="section-title">Ingredientes <span style="color:var(--gold)">Premium</span></h2>
+  <p class="section-sub" style="color:rgba(255,255,255,.8); margin:0 auto;">Fórmula exclusiva com ingredientes selecionados e de alta qualidade, sem corantes artificiais ou conservantes.</p>
+  <div class="ing-list">
+    <div class="ing-pill">🫐 Extrato de Amora-Preta</div>
+    <div class="ing-pill">🌿 Isoflavonas Naturais</div>
+    <div class="ing-pill">🍋 Vitamina C</div>
+    <div class="ing-pill">☀️ Vitamina D3</div>
+    <div class="ing-pill">🅱️ Complexo B</div>
+    <div class="ing-pill">🌸 Óleo de Prímula</div>
+    <div class="ing-pill">🍵 Extrato de Chá Verde</div>
+    <div class="ing-pill">⚡ Zinco Quelado</div>
+    <div class="ing-pill">🫀 Ômega-3</div>
+    <div class="ing-pill">🛡️ Magnésio</div>
+  </div>
+</section>
+
+<section class="videos" id="videos">
+  <div class="center">
+    <div class="section-tag">🎥 Vídeos & Depoimentos</div>
+    <h2 class="section-title">Veja Quem Já <span>Transformou</span> a Vida</h2>
+    <p class="section-sub">Assista aos vídeos exclusivos e entenda como a Amora Moída Vit atua em diferentes necessidades.</p>
+  </div>
+  <div class="videos-grid">
+    <div class="video-card">
+      <div class="video-preview preview-purple" data-video="equilibrio">
+        <div class="preview-icon">▶️</div>
+        <div class="preview-duration">2m40s</div>
+        <div class="preview-label">Equilíbrio Hormonal</div>
+      </div>
+      <div class="video-info">
+        <h4>Vídeo 1 — Equilíbrio Hormonal Profundo</h4>
+        <p>Descubra como os ativos naturais da amora reduzem os fogachos e estabilizam o humor com segurança.</p>
+        <button class="btn-video" data-video="equilibrio">▶️ Assistir agora</button>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-preview preview-green" data-video="sono">
+        <div class="preview-icon">▶️</div>
+        <div class="preview-duration">3m05s</div>
+        <div class="preview-label">Sono & Bem-estar</div>
+      </div>
+      <div class="video-info">
+        <h4>Vídeo 2 — Sono Tranquilo & Bem-Estar</h4>
+        <p>Veja depoimentos e orientações para reconquistar noites completas de descanso com Amora Moída Vit.</p>
+        <button class="btn-video" data-video="sono">▶️ Assistir agora</button>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-preview preview-orange" data-video="energia">
+        <div class="preview-icon">▶️</div>
+        <div class="preview-duration">2m10s</div>
+        <div class="preview-label">Energia & Metabolismo</div>
+      </div>
+      <div class="video-info">
+        <h4>Vídeo 3 — Energia, Metabolismo e Beleza</h4>
+        <p>Entenda como a combinação de vitaminas e antioxidantes devolve disposição, foco e autoestima.</p>
+        <button class="btn-video" data-video="energia">▶️ Assistir agora</button>
+      </div>
+    </div>
+  </div>
+  <p class="video-note">🎬 Vídeos demonstrativos com animações educativas baseadas em relatos reais. Aproveite o conteúdo para conhecer cada detalhe do produto.</p>
+</section>
+
+<section class="testimonials">
+  <div class="center">
+    <div class="section-tag">💬 Depoimentos</div>
+    <h2 class="section-title">O que nossas clientes <span>dizem</span></h2>
+  </div>
+  <div class="test-grid">
+    <div class="test-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>"Eu estava sofrendo muito com os calores e a irritabilidade. Depois de 3 semanas de Amora Moída Vit, minha vida mudou completamente. Me sinto uma nova mulher!"</p>
+      <div class="test-author">
+        <div class="avatar">👩</div>
+        <div>
+          <div class="test-name">Fernanda Oliveira</div>
+          <div class="test-meta">53 anos • Rio de Janeiro, RJ • Compradora verificada ✅</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>"Tomei por indicação da minha ginecologista e estou amando! Meu sono melhorou, meu humor estabilizou e ainda perdi uns quilinhos extras sem esforço."</p>
+      <div class="test-author">
+        <div class="avatar">👩‍🦳</div>
+        <div>
+          <div class="test-name">Tereza Campos</div>
+          <div class="test-meta">49 anos • Salvador, BA • Compradora verificada ✅</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>"Produto incrível! Já indiquei para mais 5 amigas. A diferença foi rápida – em menos de 2 semanas já sentia minha disposição aumentar. Recomendo demais!"</p>
+      <div class="test-author">
+        <div class="avatar">👩‍🦱</div>
+        <div>
+          <div class="test-name">Cristina Mendes</div>
+          <div class="test-meta">51 anos • Brasília, DF • Compradora verificada ✅</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>"Minha pele ficou mais firme e luminosa, meu cabelo parou de cair e os calores sumiram! Nunca imaginei que um produto natural pudesse fazer tanto por mim."</p>
+      <div class="test-author">
+        <div class="avatar">🧕</div>
+        <div>
+          <div class="test-name">Juliana Freitas</div>
+          <div class="test-meta">46 anos • Recife, PE • Compradora verificada ✅</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>"Passei anos lutando contra a insônia e ansiedade. Desde que comecei a tomar Amora Moída Vit, durmo profundamente e acordo disposta. Gratidão!"</p>
+      <div class="test-author">
+        <div class="avatar">👩‍💼</div>
+        <div>
+          <div class="test-name">Patricia Alves</div>
+          <div class="test-meta">58 anos • Porto Alegre, RS • Compradora verificada ✅</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>"Meu médico aprovou e eu não me arrependo nem um pouco. Meu colesterol baixou, meu humor melhorou e me sinto muito mais jovem. Produto nota 10!"</p>
+      <div class="test-author">
+        <div class="avatar">👩‍🍳</div>
+        <div>
+          <div class="test-name">Sandra Barbosa</div>
+          <div class="test-meta">54 anos • Fortaleza, CE • Compradora verificada ✅</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="guarantee">
+  <div class="section-tag">🛡️ Nossa Promessa</div>
+  <h2 class="section-title">Sua Satisfação é <span style="color:var(--gold)">Garantida</span></h2>
+  <p class="section-sub" style="color:rgba(255,255,255,.8);margin:0 auto;">Acreditamos tanto no resultado do Amora Moída Vit que oferecemos uma garantia total para você.</p>
+  <div class="guarantee-box">
+    <div class="guarantee-icon">🏆</div>
+    <div class="guarantee-text">
+      <h3>Garantia de 30 Dias</h3>
+      <p>Se por qualquer motivo você não ficar satisfeita com os resultados, devolvemos 100% do seu dinheiro. Sem burocracia, sem perguntas. Risco zero para você!</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="center">
+    <div class="section-tag">❓ Perguntas Frequentes</div>
+    <h2 class="section-title">Tire suas <span>dúvidas</span></h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Em quanto tempo vejo resultados? <span class="arr">▼</span>
+      </button>
+      <div class="faq-a"><p>A maioria das clientes relata perceber melhoras já nas primeiras 2 a 3 semanas de uso. Para resultados mais completos e duradouros, recomendamos o uso contínuo por pelo menos 90 dias.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Tem algum efeito colateral? <span class="arr">▼</span>
+      </button>
+      <div class="faq-a"><p>Amora Moída Vit é um produto 100% natural, sem corantes artificiais ou conservantes químicos. Não foram relatados efeitos colaterais relevantes. Porém, se você estiver grávida, amamentando ou usando medicamentos, consulte seu médico antes de usar.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Como devo tomar? <span class="arr">▼</span>
+      </button>
+      <div class="faq-a"><p>A recomendação é tomar 2 cápsulas por dia, preferencialmente com água durante as refeições. Siga sempre as orientações do rótulo ou de seu médico/nutricionista.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        O produto é registrado na ANVISA? <span class="arr">▼</span>
+      </button>
+      <div class="faq-a"><p>Sim! Amora Moída Vit é fabricado seguindo todas as normas de qualidade e segurança estabelecidas pela legislação brasileira, com registro e certificações vigentes.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Posso comprar mais de um frasco? <span class="arr">▼</span>
+      </button>
+      <div class="faq-a"><p>Sim, e inclusive recomendamos adquirir o kit com mais frascos para garantir o desconto progressivo e não interromper o tratamento. Os kits de 3 e 6 meses oferecem os melhores preços e resultados.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <h2>🫐 Comece Sua Transformação <br>Ainda Hoje!</h2>
+  <p>Milhares de mulheres já sentiram a diferença. Agora é a sua vez de recuperar o equilíbrio, a energia e o bem-estar que você merece.</p>
+  <div class="price-box">
+    <div class="price-old">De R\$ 197,00</div>
+    <div class="price-new"><small>R\$</small> 97<small>,00</small></div>
+    <div class="price-parcelas">ou 12x de R\$ 9,70 • Frete Grátis 🚚</div>
+  </div>
+  <br>
+  <a href="https://seu-link-de-afiliado.com" target="_blank" class="btn-cta-main">
+    🛒 QUERO MEU AMORA MOÍDA VIT AGORA
+  </a>
+  <div class="cta-trust">
+    <div class="trust-item">🔒 Compra 100% Segura</div>
+    <div class="trust-item">🏆 Garantia de 30 Dias</div>
+    <div class="trust-item">🚚 Frete Grátis</div>
+    <div class="trust-item">💳 Parcele Sem Juros</div>
+  </div>
+</section>
+
+<footer>
+  <p style="margin-bottom:8px">🫐 <strong>Amora Moída Vit</strong> — Saúde Natural de Verdade</p>
+  <p>Este site contém links de afiliado. Os resultados podem variar de pessoa para pessoa.<br>
+  Este produto não é um medicamento e não substitui consulta médica profissional.</p>
+  <p style="margin-top:10px; font-size:.75rem; opacity:.6">
+    © 2025 Amora Moída Vit • Todos os direitos reservados •
+    <a href="#">Política de Privacidade</a> •
+    <a href="#">Termos de Uso</a>
+  </p>
+</footer>
+
+<a href="https://seu-link-de-afiliado.com" target="_blank" class="floating-btn">
+  🛒 Comprar com Desconto
+</a>
+
+<div class="video-modal" id="videoModal">
+  <div class="video-modal-content">
+    <button class="video-close" id="videoClose">×</button>
+    <h3 id="videoTitle">Título do Vídeo</h3>
+    <div class="video-screen" id="videoScreen">
+      <div class="video-frame-emoji" id="videoEmoji">🫐</div>
+      <div class="video-frame-text" id="videoText">Conteúdo em exibição...</div>
+    </div>
+    <div class="video-progress"><div id="videoProgressBar"></div></div>
+    <div class="video-controls">
+      <button id="videoPlay">▶️ Reproduzir</button>
+      <button id="videoPause">⏸️ Pausar</button>
+      <button id="videoRestart">🔁 Reiniciar</button>
+    </div>
+    <p class="video-caption" id="videoCaption">Legenda do vídeo</p>
+  </div>
+</div>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  const videoScripts = {
+    equilibrio: {
+      title: 'Vídeo 1 — Equilíbrio Hormonal Profundo',
+      caption: 'Demonstração animada baseada em estudos e relatos reais de mulheres na menopausa.',
+      speed: 2200,
+      frames: [
+        { emoji: '🫐', text: 'A amora-preta concentrada atua como reguladora natural dos hormônios.', bg: 'linear-gradient(135deg,#4A1A63,#7D3C98)' },
+        { emoji: '🌡️', text: 'Isoflavonas equilibram receptores de estrogênio, reduzindo ondas de calor.', bg: 'linear-gradient(135deg,#7D3C98,#C0392B)' },
+        { emoji: '😊', text: 'Menos irritabilidade e humor nivelado em poucas semanas de uso contínuo.', bg: 'linear-gradient(135deg,#C0392B,#F39C12)' },
+        { emoji: '🩺', text: 'Vitaminas B fortalecem o sistema nervoso e potencializam o bem-estar.', bg: 'linear-gradient(135deg,#F39C12,#E67E22)' },
+        { emoji: '💧', text: 'Resultado: equilíbrio interno que reflete em conforto e mais confiança.', bg: 'linear-gradient(135deg,#7D3C98,#4A1A63)' }
+      ]
+    },
+    sono: {
+      title: 'Vídeo 2 — Sono Tranquilo & Bem-Estar',
+      caption: 'Simulação guiada mostrando como o produto influencia no ciclo do sono.',
+      speed: 2300,
+      frames: [
+        { emoji: '🌙', text: 'Magnésio e vitamina D3 preparam o corpo para uma noite relaxante.', bg: 'linear-gradient(135deg,#1B1F3B,#3C1053)' },
+        { emoji: '😌', text: 'Redução da ansiedade noturna graças à ação antioxidante da amora.', bg: 'linear-gradient(135deg,#3C1053,#7D3C98)' },
+        { emoji: '💤', text: 'Sono profundo e reparador: mais fases REM e menos despertares.', bg: 'linear-gradient(135deg,#0F2027,#203A43)' },
+        { emoji: '🌅', text: 'Acorde com energia, sem sensação de peso ou cansaço.', bg: 'linear-gradient(135deg,#203A43,#2C5364)' },
+        { emoji: '📆', text: 'Uso diário mantém o ciclo circadiano calibrado naturalmente.', bg: 'linear-gradient(135deg,#7D3C98,#1B1F3B)' }
+      ]
+    },
+    energia: {
+      title: 'Vídeo 3 — Energia, Metabolismo e Beleza',
+      caption: 'Animação que apresenta os impactos no metabolismo, pele e cabelos.',
+      speed: 2100,
+      frames: [
+        { emoji: '⚡', text: 'Complexo B + Zinco ativam o metabolismo energético celular.', bg: 'linear-gradient(135deg,#F39C12,#E67E22)' },
+        { emoji: '🏃‍♀️', text: 'Mais disposição para treinar, trabalhar e aproveitar o dia todo.', bg: 'linear-gradient(135deg,#E67E22,#C0392B)' },
+        { emoji: '💇‍♀️', text: 'Antioxidantes protegem colágeno e reduzem queda de cabelo.', bg: 'linear-gradient(135deg,#C0392B,#7D3C98)' },
+        { emoji: '🌟', text: 'Pele mais luminosa e firme com vitamina C biodisponível.', bg: 'linear-gradient(135deg,#7D3C98,#4A1A63)' },
+        { emoji: '🎯', text: 'Resultados perceptíveis a partir do 1º mês com uso contínuo.', bg: 'linear-gradient(135deg,#4A1A63,#F39C12)' }
+      ]
+    }
+  };
+
+  const videoModal = document.getElementById('videoModal');
+  const videoTitle = document.getElementById('videoTitle');
+  const videoScreen = document.getElementById('videoScreen');
+  const videoEmoji = document.getElementById('videoEmoji');
+  const videoText = document.getElementById('videoText');
+  const videoCaption = document.getElementById('videoCaption');
+  const videoProgressBar = document.getElementById('videoProgressBar');
+  const videoClose = document.getElementById('videoClose');
+  const playBtn = document.getElementById('videoPlay');
+  const pauseBtn = document.getElementById('videoPause');
+  const restartBtn = document.getElementById('videoRestart');
+
+  let currentVideo = null;
+  let currentFrame = 0;
+  let videoInterval = null;
+
+  function updateFrame() {
+    if (!currentVideo) return;
+    const frame = currentVideo.frames[currentFrame];
+    videoScreen.style.background = frame.bg;
+    videoEmoji.textContent = frame.emoji;
+    videoText.textContent = frame.text;
+    videoCaption.textContent = currentVideo.caption;
+    const progress = ((currentFrame + 1) / currentVideo.frames.length) * 100;
+    videoProgressBar.style.width = progress + '%';
+  }
+
+  function playVideo() {
+    if (!currentVideo) return;
+    pauseVideo();
+    videoInterval = setInterval(() => {
+      currentFrame = (currentFrame + 1) % currentVideo.frames.length;
+      updateFrame();
+    }, currentVideo.speed);
+  }
+
+  function pauseVideo() {
+    if (videoInterval) {
+      clearInterval(videoInterval);
+      videoInterval = null;
+    }
+  }
+
+  function restartVideo() {
+    if (!currentVideo) return;
+    currentFrame = 0;
+    updateFrame();
+  }
+
+  function openVideo(id) {
+    currentVideo = videoScripts[id];
+    if (!currentVideo) return;
+    currentFrame = 0;
+    videoTitle.textContent = currentVideo.title;
+    updateFrame();
+    videoModal.classList.add('active');
+    playVideo();
+  }
+
+  function closeVideo() {
+    pauseVideo();
+    videoModal.classList.remove('active');
+  }
+
+  document.querySelectorAll('.btn-video, .video-preview').forEach(el => {
+    el.addEventListener('click', () => openVideo(el.dataset.video));
+  });
+  playBtn.addEventListener('click', playVideo);
+  pauseBtn.addEventListener('click', pauseVideo);
+  restartBtn.addEventListener('click', () => { restartVideo(); playVideo(); });
+  videoClose.addEventListener('click', closeVideo);
+  videoModal.addEventListener('click', e => { if (e.target === videoModal) closeVideo(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && videoModal.classList.contains('active')) closeVideo(); });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.benefit-card, .who-card, .test-card, .video-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity .6s ease, transform .6s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
